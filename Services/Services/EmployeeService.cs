@@ -1,9 +1,8 @@
 ﻿using Concerns.Concerns;
+using EmployeeManagement.Service.Services;
 using Repository.Repository.Interfaces;
 using Service.Services.Constants;
 using Service.Services.Interfaces;
-using Service.Services;
-using EmployeeManagement.Service.Services;
 
 namespace Service.Services
 {

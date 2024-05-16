@@ -1,11 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
-using Concerns.Concerns;
+﻿using Concerns.Concerns;
 using Microsoft.AspNetCore.Mvc;
 using Service.Services.Interfaces;
 
 namespace EmployeeManagementAPI.Controllers
 {
-    [Route("api/[controller]/[action]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class RolesController : ControllerBase
     {
