@@ -1,9 +1,11 @@
 using EmployeeManagement.Repository;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using Repository.Repository;
 using Repository.Repository.Interfaces;
 using Service.Services;
 using Service.Services.Interfaces;
+using System.Reflection;
 
 namespace EmployeeManagementAPI
 {
@@ -23,6 +25,13 @@ namespace EmployeeManagementAPI
             builder.Services.AddDbContext<EmployeeDbContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("database")));
 
+            builder.Services.AddControllers()
+            .AddFluentValidation(v =>
+            {
+                v.ImplicitlyValidateChildProperties = true;
+                v.ImplicitlyValidateRootCollectionElements = true;
+                v.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+            });
 
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
